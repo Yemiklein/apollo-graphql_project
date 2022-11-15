@@ -11,6 +11,7 @@ const typeDefs = gql`
     age: Int!
     nationality: Nationality!
     friends: [User]
+    favoriteMovies: [Movie]
     }
 
     type Movie {
@@ -19,7 +20,6 @@ const typeDefs = gql`
         year: Int!
         rating: Float!
         isInTheaters: Boolean!
-        actors: [User]
         }
 
     type Query {
@@ -29,10 +29,32 @@ const typeDefs = gql`
     movie(title:String!):Movie!
     }
 
+input CreateUserInput {
+    name: String!
+    username: String!
+    age: Int!
+    nationality: Nationality = NIGERIA
+}
+
+input UpdateUsernameInput {
+     id: ID!
+    newUsername: String!
+  
+    }
+
+
+
+type Mutation {
+createUser(input: CreateUserInput!): User
+updateUsername(input: UpdateUsernameInput!):User
+deleteUser(id:ID!):User
+}
+
    enum Nationality {
     AMERICAN
     BRITISH
     NIGERIAN
+    CANADIAN
 
    }
 `;
