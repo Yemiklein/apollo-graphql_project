@@ -33,7 +33,7 @@ input CreateUserInput {
     name: String!
     username: String!
     age: Int!
-    nationality: Nationality = NIGERIA
+    nationality: Nationality = NIGERIAN
 }
 
 input UpdateUsernameInput {
@@ -55,6 +55,11 @@ deleteUser(id:ID!):User
     BRITISH
     NIGERIAN
     CANADIAN
+    FRENCH
+    RUSSIAN
+    CHINESE
+    JAPANESE
+    POLISH
 
    }
 `;
